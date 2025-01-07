@@ -7,6 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
+/**
+ * Pour test uniquement, Tester les base de l'applicaiton springboot
+ */
 @RestController
 @RequestMapping("/api/v1/test")
 public class TestController extends BaseController<TestEntity> {
@@ -15,4 +20,14 @@ public class TestController extends BaseController<TestEntity> {
         super(testService);
     }
 
+    @Override
+    protected List<String> getFieldsForResponse() {
+        return List.of(
+                "id",
+                "name",
+                "price",
+                "creationDate",
+                "lastModifiedDate"
+        );
+    }
 }

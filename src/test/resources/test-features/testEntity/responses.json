@@ -1,0 +1,24 @@
+{
+  "testList": [
+    {
+      "id": 1,
+      "name": "test2",
+      "price": 80112
+    }
+  ],
+  "singleTest": {
+    "id": 1,
+    "name": "test2",
+    "price": 80112
+  },
+  "createdTest": {
+    "id": 1,
+    "name": "test2",
+    "price": 80112
+  },
+  "updatedTest": {
+    "id": 1,
+    "name": "Updated Test 2 Entity",
+    "price": 80000
+  }
+}

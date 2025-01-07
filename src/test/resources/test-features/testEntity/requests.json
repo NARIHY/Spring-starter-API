@@ -1,0 +1,10 @@
+{
+  "createTest": {
+    "name": "test2",
+    "price":80112
+  },
+  "updateTest": {
+    "name": "Updated Test 2 Entity",
+    "price": 80000
+  }
+}

@@ -1,11 +1,13 @@
 package com.tm_service.com.tmoto.microservice.model;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.tm_service.com.tmoto.base.model.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "test_entity")
+@JsonFilter("baseFilter")
 public class TestEntity extends BaseEntity {
     public String getName() {
         return name;
