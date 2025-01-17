@@ -124,8 +124,7 @@ Voici un exemple de contrôleur pour l'entité `TestEntity` :
 ```java
 package com.tm_service.com.tmoto.microservice.controller;
 
-import com.tm_service.com.tmoto.microservice.model.TestEntity;
-import com.tm_service.com.tmoto.microservice.repository.TestEntityRepository;
+import model.microservice.tmoto.com.base_spring_boot.com.TestEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -135,37 +134,37 @@ import java.util.List;
 @RequestMapping("/test-entity")
 public class TestEntityController {
 
-    @Autowired
-    private TestEntityRepository testEntityRepository;
+   @Autowired
+   private TestEntityRepository testEntityRepository;
 
-    @GetMapping
-    public List<TestEntity> getAllEntities() {
-        return testEntityRepository.findAll();
-    }
+   @GetMapping
+   public List<TestEntity> getAllEntities() {
+      return testEntityRepository.findAll();
+   }
 
-    @PostMapping
-    public TestEntity createEntity(@RequestBody TestEntity testEntity) {
-        return testEntityRepository.save(testEntity);
-    }
+   @PostMapping
+   public TestEntity createEntity(@RequestBody TestEntity testEntity) {
+      return testEntityRepository.save(testEntity);
+   }
 
-    @GetMapping("/{id}")
-    public TestEntity getEntityById(@PathVariable Long id) {
-        return testEntityRepository.findById(id).orElse(null);
-    }
+   @GetMapping("/{id}")
+   public TestEntity getEntityById(@PathVariable Long id) {
+      return testEntityRepository.findById(id).orElse(null);
+   }
 
-    @PutMapping("/{id}")
-    public TestEntity updateEntity(@PathVariable Long id, @RequestBody TestEntity testEntity) {
-        if (!testEntityRepository.existsById(id)) {
-            return null;
-        }
-        testEntity.setId(id);
-        return testEntityRepository.save(testEntity);
-    }
+   @PutMapping("/{id}")
+   public TestEntity updateEntity(@PathVariable Long id, @RequestBody TestEntity testEntity) {
+      if (!testEntityRepository.existsById(id)) {
+         return null;
+      }
+      testEntity.setId(id);
+      return testEntityRepository.save(testEntity);
+   }
 
-    @DeleteMapping("/{id}")
-    public void deleteEntity(@PathVariable Long id) {
-        testEntityRepository.deleteById(id);
-    }
+   @DeleteMapping("/{id}")
+   public void deleteEntity(@PathVariable Long id) {
+      testEntityRepository.deleteById(id);
+   }
 }
 ```
 ## Auteur

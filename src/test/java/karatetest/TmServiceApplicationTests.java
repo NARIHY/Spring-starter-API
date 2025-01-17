@@ -2,7 +2,6 @@ package karatetest;
 
 
 import com.intuit.karate.junit5.Karate;
-import com.tm_service.com.TmServiceApplication;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.SpringApplication;
 import org.springframework.core.env.ConfigurableEnvironment;
