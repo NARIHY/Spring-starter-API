@@ -11,7 +11,7 @@ public abstract class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     /**
      * Date et heure de création de l'instance d'unité d'enseignement.
@@ -33,11 +33,11 @@ public abstract class BaseEntity {
 
     // Getters et setters pour l'ID et d'autres attributs communs
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

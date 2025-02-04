@@ -32,7 +32,7 @@ public class TestService extends BaseService<TestEntity>  {
      * Implémentation spécifique à la mise à jour d'une entité TestEntity.
      */
     @Override
-    protected TestEntity processUpdate(TestEntity entity, Long id) {
+    protected TestEntity processUpdate(TestEntity entity, Integer id) {
         // Validation que l'entité existe ou que l'ID est valide
         TestEntity existingEntity = baseRepository.findById(id)
                 .orElseThrow(() -> new FunctionnalException("Entité non trouvée pour la mise à jour."));
@@ -68,7 +68,7 @@ public class TestService extends BaseService<TestEntity>  {
     }
 
     @Override
-    public boolean canUpdate(Long id) {
+    public boolean canUpdate(Integer id) {
         return true;
     }
 
@@ -78,12 +78,12 @@ public class TestService extends BaseService<TestEntity>  {
     }
 
     @Override
-    public boolean canQueryOne(Long id) {
+    public boolean canQueryOne(Integer id) {
         return true;
     }
 
     @Override
-    public boolean canRemove(Long id) {
+    public boolean canRemove(Integer id) {
         return true;
     }
 }

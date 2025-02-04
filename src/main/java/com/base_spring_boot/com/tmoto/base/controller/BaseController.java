@@ -133,7 +133,7 @@ public abstract class BaseController<T extends BaseEntity> {
 
     // READ - Get one entity by ID
     @GetMapping(path = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<MappingJacksonValue> getById(@PathVariable("id") Long id) {
+    public ResponseEntity<MappingJacksonValue> getById(@PathVariable("id") Integer id) {
         Optional<T> entity = baseService.findById(id);
         if (entity.isPresent()) {
             MappingJacksonValue filteredEntity = applyJsonFilter(entity.get());
@@ -144,7 +144,7 @@ public abstract class BaseController<T extends BaseEntity> {
 
     // UPDATE
     @PutMapping("/{id}")
-    public ResponseEntity<MappingJacksonValue> update(@PathVariable("id") Long id, @RequestBody T entity) {
+    public ResponseEntity<MappingJacksonValue> update(@PathVariable("id") Integer id, @RequestBody T entity) {
         Optional<T> existingEntity = baseService.findById(id);
         if (existingEntity.isPresent()) {
             entity.setId(id);
@@ -157,7 +157,7 @@ public abstract class BaseController<T extends BaseEntity> {
 
     // DELETE
     @DeleteMapping("/{id}")
-    public ResponseEntity<T> delete(@PathVariable Long id) {
+    public ResponseEntity<T> delete(@PathVariable Integer id) {
         baseService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

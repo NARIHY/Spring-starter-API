@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, Long> {
+public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, Integer> {
     // Vous pouvez ajouter des méthodes personnalisées si nécessaire
 }

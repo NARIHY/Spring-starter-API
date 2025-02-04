@@ -33,7 +33,7 @@ public abstract class BaseService<T extends BaseEntity> implements Service<T> {
 
     protected abstract T processCreate(T entity);
 
-    protected abstract T processUpdate(T entity, Long id);
+    protected abstract T processUpdate(T entity, Integer id);
 
     protected abstract void processRemove(T entity);
 
@@ -55,7 +55,7 @@ public abstract class BaseService<T extends BaseEntity> implements Service<T> {
     }
 
     @PreAuthorize("this.canQueryOne(#id)")
-    public T getById(Long id) {
+    public T getById(Integer id) {
         return baseRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Resource not found : " + id));
     }
 
@@ -87,7 +87,7 @@ public abstract class BaseService<T extends BaseEntity> implements Service<T> {
      */
     @Transactional
     @PreAuthorize("this.canUpdate(#id)")
-    public T update(T entity, Long id) {
+    public T update(T entity, Integer id) {
         entity.setLastModifiedDate(generateDate());
         return baseRepository.save(processUpdate(entity, id));
     }
@@ -99,7 +99,7 @@ public abstract class BaseService<T extends BaseEntity> implements Service<T> {
      * Trouver une entité par son ID.
      */
     @PreAuthorize("this.canQueryOne(#id)")
-    public Optional<T> findById(Long id) {
+    public Optional<T> findById(Integer id) {
         return baseRepository.findById(id);
     }
 
@@ -108,7 +108,7 @@ public abstract class BaseService<T extends BaseEntity> implements Service<T> {
      */
     @Transactional
     @PreAuthorize("this.canRemove(#id)")
-    public void delete(Long id) {
+    public void delete(Integer id) {
         if (!baseRepository.existsById(id)) {
             throw new EntityNotFoundException("Entity with ID " + id + " not found for deletion");
         }
@@ -161,7 +161,7 @@ public abstract class BaseService<T extends BaseEntity> implements Service<T> {
 
 
     @Transactional(readOnly = true)
-    public boolean canUpdate(Long id) {
+    public boolean canUpdate(Integer id) {
         return false;
     }
 
@@ -175,19 +175,19 @@ public abstract class BaseService<T extends BaseEntity> implements Service<T> {
 
 
     @Transactional(readOnly = true)
-    public boolean canQueryOne(Long id) {
+    public boolean canQueryOne(Integer id) {
         return false;
     }
 
 
 
     @Transactional(readOnly = true)
-    public boolean canRemove(Long id) {
+    public boolean canRemove(Integer id) {
         return false;
     }
 
     @Transactional(readOnly = true)
-    public String getUserAllowedMethodHeaders(Long id) {
+    public String getUserAllowedMethodHeaders(Integer id) {
         var allowedMethods = new StringBuilder();
         try {
             var canQuery = canQuery();

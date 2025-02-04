@@ -7,5 +7,5 @@ import org.springframework.util.MultiValueMap;
 public interface Service<T> {
     Page<T> find(Pageable page, MultiValueMap<String, String> criteria);
 
-    String getUserAllowedMethodHeaders(Long id);
+    String getUserAllowedMethodHeaders(Integer id);
 }

@@ -1,6 +1,7 @@
 package karatetest;
 
 
+import com.base_spring_boot.com.BaseAPIApplication;
 import com.intuit.karate.junit5.Karate;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +12,7 @@ import javax.script.ScriptException;
 import java.time.ZoneOffset;
 import java.util.TimeZone;
 
-class TmServiceApplicationTests {
+class BaseAPIApplicationTest {
 
 	@BeforeAll
 	public static void setUp() throws ScriptException {
@@ -21,7 +22,7 @@ class TmServiceApplicationTests {
 		if (System.getenv("profile") != null)
 			environment.setActiveProfiles(System.getenv("profile"));
 		else environment.setActiveProfiles("devh2", "testing");
-		SpringApplication app = new SpringApplication(TmServiceApplication.class);
+		SpringApplication app = new SpringApplication(BaseAPIApplication.class);
 		app.setEnvironment(environment);
 		app.run(args);
 	}
