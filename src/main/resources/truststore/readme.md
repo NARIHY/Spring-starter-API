@@ -1,0 +1,1 @@
+keytool -import -trustcacerts -alias intermediaireX -file r10.pem -keystore keystore.jks -storepass changeit 

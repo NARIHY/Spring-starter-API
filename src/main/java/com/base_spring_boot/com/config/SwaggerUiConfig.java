@@ -33,6 +33,9 @@ public class SwaggerUiConfig {
         };
     }
 
+
+
+
     private String extractEntityNameFromPath(String path) {
         // Logic to extract entity name from path
         String[] entity = path.split("/");
